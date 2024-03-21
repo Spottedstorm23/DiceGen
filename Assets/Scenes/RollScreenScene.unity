@@ -119,11 +119,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34234925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1491902043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &34234926 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
     type: 3}
   m_PrefabInstance: {fileID: 1491902043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &263182040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 743554697}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &263182041 stripped
 RectTransform:
@@ -242,7 +254,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 6
+      value: Dice Result Item 6
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -266,7 +278,7 @@ GameObject:
   - component: {fileID: 362391841}
   - component: {fileID: 362391840}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: RoundCounterText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Round: '
+  m_Text: 
 --- !u!222 &362391841
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -454,6 +466,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411246323}
   m_CullTransparentMesh: 1
+--- !u!1 &582647747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1092193563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &582647748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -617,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 10
+      value: Dice Result Item 10
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -629,6 +647,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2332ea9ac6b3049469ec45bcdc37ff91, type: 3}
+--- !u!1 &641268056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641268058}
+  - component: {fileID: 641268057}
+  m_Layer: 0
+  m_Name: ResultUpdater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &641268057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641268056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989e45a64ca22d249b06087945ad5401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceResultItem1: {fileID: 582647747}
+  diceResultItem2: {fileID: 1295834497}
+  diceResultItem3: {fileID: 263182040}
+  diceResultItem4: {fileID: 2135209219}
+  diceResultItem5: {fileID: 34234925}
+  diceResultItem6: {fileID: 998236587}
+  diceResultItem7: {fileID: 2109119810}
+  diceResultItem8: {fileID: 719840895}
+  diceResultItem9: {fileID: 1813369553}
+  diceResultItem10: {fileID: 1607033124}
+--- !u!4 &641268058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641268056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &688655735
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +1013,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &719840895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186325849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &719840896 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -1058,7 +1136,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 3
+      value: Dice Result Item 3
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -1285,7 +1363,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 4
+      value: Dice Result Item 4
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -1309,6 +1387,7 @@ GameObject:
   - component: {fileID: 896062037}
   - component: {fileID: 896062036}
   - component: {fileID: 896062035}
+  - component: {fileID: 896062038}
   m_Layer: 5
   m_Name: Roll
   m_TagString: Untagged
@@ -1358,10 +1437,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.38823533, g: 0.38823533, b: 0.38823533, a: 1}
+    m_PressedColor: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
+    m_SelectedColor: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
+    m_DisabledColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1418,6 +1497,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896062033}
   m_CullTransparentMesh: 1
+--- !u!114 &896062038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896062033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd60caa8a0070341b6a3d4c8d5d5d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundText: {fileID: 362391840}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1602,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 36.804, y: 0, z: 0}
+--- !u!1 &998236587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 359176808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &998236588 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -1627,7 +1725,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 1
+      value: Dice Result Item 1
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -1822,7 +1920,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 8
+      value: Dice Result Item 8
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -1870,7 +1968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 10, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1217573016
@@ -2035,6 +2133,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255828910}
   m_CullTransparentMesh: 1
+--- !u!1 &1295834497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2109463217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1295834498 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -2054,7 +2158,7 @@ GameObject:
   - component: {fileID: 1331858558}
   - component: {fileID: 1331858557}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: DiceList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2261,7 +2365,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 5
+      value: Dice Result Item 5
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -2384,7 +2488,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 7
+      value: Dice Result Item 7
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -2396,6 +2500,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2332ea9ac6b3049469ec45bcdc37ff91, type: 3}
+--- !u!1 &1607033124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 613240444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1607033125 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -2677,6 +2787,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1813369553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1937229777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1813369554 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -2873,7 +2989,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 9
+      value: Dice Result Item 9
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -2964,6 +3080,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002713239}
   m_CullTransparentMesh: 1
+--- !u!1 &2109119810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532547537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2109119811 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -3081,7 +3203,7 @@ PrefabInstance:
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
       propertyPath: m_Name
-      value: Dice 2
+      value: Dice Result Item 2
       objectReference: {fileID: 0}
     - target: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
         type: 3}
@@ -3219,6 +3341,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115461543}
   m_CullTransparentMesh: 1
+--- !u!1 &2135209219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215511799758795781, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
+    type: 3}
+  m_PrefabInstance: {fileID: 832190258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2135209220 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1125298630848083298, guid: 2332ea9ac6b3049469ec45bcdc37ff91,
@@ -3234,3 +3362,4 @@ SceneRoots:
   - {fileID: 702144760}
   - {fileID: 1810100325}
   - {fileID: 784230969}
+  - {fileID: 641268058}
