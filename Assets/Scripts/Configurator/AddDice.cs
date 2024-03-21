@@ -19,10 +19,7 @@ public class AddDice : MonoBehaviour
     public Image dice10_img;
     public Text warning;
     public Image warningIcon;
-    
     private Button _add;
-
-    private GameObject _rollButton;
     private DiceManager _diceManager;
 
     // Start is called before the first frame update
@@ -30,8 +27,7 @@ public class AddDice : MonoBehaviour
     {
         _add = GetComponent<Button>();
         _add.onClick.AddListener(AddDiceOnClick);
-        _rollButton = GameObject.Find("RollDice");
-        _diceManager = _rollButton.gameObject.GetComponent<DiceManager>();
+        _diceManager = GameObject.Find("DiceManager").GetComponent<DiceManager>();
     }
 
     // Update is called once per frame
@@ -107,9 +103,17 @@ public class AddDice : MonoBehaviour
             dice10_img.gameObject.SetActive(true);;
             dice10_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
         }
-        _diceManager.diceCounter++;
-        _diceManager.UpdateDice(_diceManager.diceCounter, new Dice(diceType, color));
 
+        _diceManager.UpdateDice(_diceManager.diceCounter, new Dice(diceType, color));
+        _diceManager.diceCounter++;
+        if(_diceManager.diceCounter == 10)
+        {
+            RemoveAddButton();
+        }
+    }
+    
+    void RemoveAddButton(){
+        _add.gameObject.SetActive(false);
     }
     
     string SelectColor(int colorDropValue)

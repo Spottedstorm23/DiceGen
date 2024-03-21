@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DiceManager : MonoBehaviour
 {
-
-    public Dice[] allDice = new Dice[10];
+    public static DiceManager manager;   
+    public Dice[] allDice; 
 
     public int diceCounter = 0;
     public int rounds = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        allDice = new Dice[10];
+        manager = this;                          // linking the self-reference
+        DontDestroyOnLoad(transform.gameObject); // set to dont destroy
     }
 
     // Update is called once per frame

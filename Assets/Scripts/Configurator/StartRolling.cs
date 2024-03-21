@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartRolling : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class StartRolling : MonoBehaviour
 
         _warning = GameObject.Find("Warning").GetComponent<Text>();
         _roundIn = GameObject.Find("RoundCount").GetComponent<InputField>();
-        _diceManager = GetComponent<DiceManager>();
+        _diceManager = GameObject.Find("DiceManager").GetComponent<DiceManager>();
 
     }
 
@@ -47,6 +48,8 @@ public class StartRolling : MonoBehaviour
             return;
         }
         _diceManager.rounds = int.Parse(_roundIn.text);
+        
+        SceneManager.LoadScene("RollScreenScene");
     }
 
     bool CheckInputsAreValid()

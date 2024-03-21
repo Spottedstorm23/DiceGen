@@ -13,8 +13,10 @@ public class RollDice : MonoBehaviour
     private Transform _diceResultText;
 
     private DiceResultUpdater _diceResultUpdater;
+    private DiceManager _diceManager;
 
-    private int _roundsGiven = 5;
+    private int _roundsGiven = 0;
+    private int _diceGiven = 0;
     private int _roundsDone = 0;
 
     
@@ -24,17 +26,12 @@ public class RollDice : MonoBehaviour
         _roll = GetComponent<Button>();
         _roll.onClick.AddListener(Roll);
         
+        _diceManager = DiceManager.manager; 
+        _roundsGiven = _diceManager.rounds;
+        _dices = _diceManager.allDice;
+        _diceGiven = _diceManager.diceCounter;
+        
         _diceResultUpdater = GameObject.Find("ResultUpdater").gameObject.GetComponent<DiceResultUpdater>();
-        
-        
-        _dices[0] = new Dice("D2", "White");
-        _dices[1] = new Dice("D4", "White");
-        _dices[2] = new Dice("D6", "White");
-        _dices[3] = new Dice("D8", "White");
-        _dices[4] = new Dice("D10", "White");
-        _dices[5] = new Dice("D00", "White");
-        _dices[6] = new Dice("D12", "White");
-        _dices[7] = new Dice("D20", "White");
     }
 
     void Roll()
@@ -44,7 +41,7 @@ public class RollDice : MonoBehaviour
         {
             _roll.interactable = false;
         }
-        for (int i = 0; i < 10; i++) 
+        for (int i = 0; i < _diceGiven; i++) 
         {
             if (_dices[i] == null || _dices[i].keep)
             {
@@ -89,7 +86,6 @@ public class RollDice : MonoBehaviour
             _diceResultUpdater.SetDiceName(i, _dices[i].type, _dices[i].color);
             _diceResultUpdater.SetDiceImage(i, _dices[i].type, _dices[i].color);
             _diceResultUpdater.SetEyeValue(i, _dices[i].result.ToString());
-
         }
     }
 
