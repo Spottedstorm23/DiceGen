@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DiceManager : MonoBehaviour
 {
-    public static DiceManager manager;   
-    public Dice[] allDice; 
+    public static DiceManager manager;
+    public Dice[] allDice;
 
     public int diceCounter = 0;
     public int rounds = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         allDice = new Dice[10];
-        manager = this;                          // linking the self-reference
+        manager = this; // linking the self-reference
         DontDestroyOnLoad(transform.gameObject); // set to dont destroy
     }
 
@@ -31,7 +31,11 @@ public class DiceManager : MonoBehaviour
     public void removeLastDice(int lastKey)
     {
         allDice[lastKey] = null;
+    }
 
+    public void SetRounds(int roundsIn)
+    {
+        rounds = roundsIn;
     }
 }
 
@@ -52,7 +56,7 @@ public class Dice
     {
         result = eyes;
     }
-    
+
     public void SetKeep()
     {
         keep = !keep;

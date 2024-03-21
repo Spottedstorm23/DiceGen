@@ -1335,7 +1335,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -1719,6 +1719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundText: {fileID: 362391840}
+  enterButton: {fileID: 1244344830}
+  roundsInput: {fileID: 1747718283}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,6 +2281,7 @@ GameObject:
   - component: {fileID: 1244344834}
   - component: {fileID: 1244344833}
   - component: {fileID: 1244344832}
+  - component: {fileID: 1244344835}
   m_Layer: 5
   m_Name: Enter
   m_TagString: Untagged
@@ -2388,6 +2391,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244344830}
   m_CullTransparentMesh: 1
+--- !u!114 &1244344835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244344830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171e5edc03a3e3f49a839911bb16332b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1255828910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,7 +2927,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter Rounds
+  m_Text: Enter Rolls (1-100)
 --- !u!222 &1637359167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3083,14 +3098,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747718286}
   m_TextComponent: {fileID: 810299901}
   m_Placeholder: {fileID: 1637359166}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterValidation: 1
+  m_CharacterLimit: 3
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
