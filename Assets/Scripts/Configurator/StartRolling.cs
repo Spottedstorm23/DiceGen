@@ -6,18 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class StartRolling : MonoBehaviour
 {
-    
     private Button _roll;
 
     private Text _warning;
     private InputField _roundIn;
 
     private DiceManager _diceManager;
-    
+
     public Image warningIcon;
 
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +25,11 @@ public class StartRolling : MonoBehaviour
         _warning = GameObject.Find("Warning").GetComponent<Text>();
         _roundIn = GameObject.Find("RoundCount").GetComponent<InputField>();
         _diceManager = GameObject.Find("DiceManager").GetComponent<DiceManager>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void ChangeToRolling()
@@ -47,29 +42,30 @@ public class StartRolling : MonoBehaviour
         {
             return;
         }
-        _diceManager.rounds = int.Parse(_roundIn.text);
-        
+
+        _diceManager.SetRounds(int.Parse(_roundIn.text));
+
         SceneManager.LoadScene("RollScreenScene");
     }
 
     bool CheckInputsAreValid()
     {
         bool tmp_bool = true;
-        
+
         if (_diceManager.diceCounter == 0)
         {
             _warning.text = "Please add at least one dice! \n";
             warningIcon.gameObject.SetActive(true);
             tmp_bool = false;
         }
-        if (_roundIn.text == "" || int.Parse(_roundIn.text) < 1 || int.Parse(_roundIn.text) > 10)
+
+        if (_roundIn.text == "" || int.Parse(_roundIn.text) < 1 || int.Parse(_roundIn.text) > 100)
         {
-            _warning.text = _warning.text  + "Please enter 1 to 10 Rounds ";
+            _warning.text = _warning.text + "Set rolls to a number from 1 to 100!";
             warningIcon.gameObject.SetActive(true);
             tmp_bool = false;
         }
 
-        
 
         return tmp_bool;
     }

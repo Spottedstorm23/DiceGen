@@ -9,6 +9,10 @@ public class RollDice : MonoBehaviour
 
     public Dice[] _dices = new Dice[10];
     public Text roundText;
+    
+    public GameObject enterButton;
+    
+    public GameObject roundsInput;
 
     private Transform _diceResultText;
 
@@ -40,6 +44,9 @@ public class RollDice : MonoBehaviour
         if (_roundsDone == _roundsGiven)
         {
             _roll.interactable = false;
+            roundText.text = "";
+            enterButton.SetActive(true);
+            roundsInput.SetActive(true);
         }
         for (int i = 0; i < _diceGiven; i++) 
         {
@@ -129,7 +136,14 @@ public class RollDice : MonoBehaviour
     void UpdateRounds()
     {
         _roundsDone++;
-        roundText.text = "Round " + _roundsDone;
+        roundText.text = "Roll " + _roundsDone + " / " + _roundsGiven;
     }
 
+    public void Reactivcate()
+    {
+        _roll.interactable = true;
+        _roundsDone = 0;
+        _roundsGiven = _diceManager.rounds;
+    }
+    
 }
