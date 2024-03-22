@@ -17,6 +17,9 @@ using UnityEngine;
 /// <item><see cref="CountDown"/></item>
 /// </list>
 /// </functions>
+/// <access>
+/// with <c>DiceManager.Manager</c>
+/// </access>
 public class DiceManager : MonoBehaviour
 {
     public static DiceManager Manager;

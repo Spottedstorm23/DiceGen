@@ -1,29 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class ReturnToConfig : MonoBehaviour
+namespace RollScreen
 {
-    private Button _newConfigButton;
-    
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Return to the configurator scene
+    /// </summary>
+    public class ReturnToConfig : MonoBehaviour
     {
-        _newConfigButton = GetComponent<Button>();
-        _newConfigButton.onClick.AddListener(ReturnToConf);
-    }
+        private Button _newConfigButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void ReturnToConf()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("ConfiguratorScene");
-        Destroy(DiceManager.Manager.gameObject);
+        /// <summary>
+        /// Set the clickListener and call to the <see cref="SceneChanger"/>
+        /// </summary>
+        private void Start()
+        {
+            _newConfigButton = GetComponent<Button>();
+            _newConfigButton.onClick.AddListener(() =>
+                SceneChanger.ChangeScene(SceneChanger.Scenes.RollScreenScene, SceneChanger.Scenes.ConfiguratorScene));
+        }
     }
 }

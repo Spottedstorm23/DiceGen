@@ -1,35 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class KeepConfig : MonoBehaviour
+namespace RollScreen
 {
-    private Button _enter;
-    private InputField _newRounds;
-    private RollDice _rollDice;
-
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Script to reset the number of rolls without having to redo the dice configuration
+    /// </summary>
+    public class KeepConfig : MonoBehaviour
     {
-        _enter = GetComponent<Button>();
-        _enter.onClick.AddListener(SetNewRounds);
+        public Button enter;
+        public InputField newRounds;
+        private RollDice _rollDice;
 
-        _newRounds = GameObject.Find("Rounds").GetComponent<InputField>();
-        _rollDice = GameObject.Find("Roll").GetComponent<RollDice>();
-    }
+        
+        /// <summary>
+        /// Access all necessary objects on startup
+        /// </summary>
+        private void Start()
+        {
+            enter = GetComponent<Button>();
+            enter.onClick.AddListener(SetNewRounds);
 
-    private void SetNewRounds()
-    {
-        DiceManager.Manager.SetRounds(int.Parse(_newRounds.text));
-        _enter.gameObject.SetActive(false);
-        _newRounds.text = "";
-        _newRounds.gameObject.SetActive(false);
-        _rollDice.Reactivate();
-    }
+            _rollDice = GameObject.Find("Roll").GetComponent<RollDice>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        /// <summary>
+        /// Give the new number of rolls to the DiceManager, hide the input again and reactivate the button to roll again.
+        /// </summary>
+        private void SetNewRounds()
+        {
+            DiceManager.Manager.SetRounds(int.Parse(newRounds.text));
+            HideRoundInput();
+            _rollDice.Reactivate();
+        }
+
+        /// <summary>
+        /// Clears the input text and hides both input and button.
+        /// </summary>
+        private void HideRoundInput()
+        {
+            enter.gameObject.SetActive(false);
+            newRounds.text = "";
+            newRounds.gameObject.SetActive(false);
+        }
+
+
     }
 }
