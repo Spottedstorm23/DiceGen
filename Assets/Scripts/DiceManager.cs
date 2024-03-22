@@ -143,7 +143,7 @@ public class Dice
 /// <summary>
 /// Enum definition of all possible colors a dice might have.
 /// </summary>
-/// <Colors>None | White | Black | Red | Blue | Green | Cyan | Magenta | Yellow</Colors>
+/// <Colors>None | White | Black | Red | Blue | Green | Cyan | Magenta | Yellow | Multi</Colors>
 /// <remarks>
 /// Keep the order of the options in the DropDown parallel to the definition here to ensure compatibility.
 /// </remarks>
@@ -157,12 +157,13 @@ public enum DiceColors
     Green,
     Cyan,
     Magenta,
-    Yellow
+    Yellow,
+    Multi
 }
 /// <summary>
 /// Enum definition of all possible types a dice might have.
 /// </summary>
-/// <Types>None | D2 | D4 | D6 | D8 | D10 | D00 | D12 | D20</Types>
+/// <Types>None | D2 | D4 | D6 | D8 | D10 | D0 | D00 | D12 | D20</Types>
 /// <remarks>
 /// <para>
 /// Keep the order of the options in the DropDown parallel to the definition here to ensure compatibility.
@@ -180,6 +181,7 @@ public enum DiceTypes
     D6,
     D8,
     D10,
+    D0,
     D00,
     D12,
     D20
