@@ -23,7 +23,7 @@ public class ReturnToConfig : MonoBehaviour
 
     void ReturnToConf()
     {
-        SceneManager.LoadScene("ConfiguratorScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ConfiguratorScene");
         Destroy(DiceManager.Manager.gameObject);
     }
 }
