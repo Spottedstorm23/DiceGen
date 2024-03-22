@@ -21,11 +21,11 @@ public class KeepConfig : MonoBehaviour
 
     private void SetNewRounds()
     {
-        DiceManager.manager.SetRounds(int.Parse(_newRounds.text));
+        DiceManager.Manager.SetRounds(int.Parse(_newRounds.text));
         _enter.gameObject.SetActive(false);
         _newRounds.text = "";
         _newRounds.gameObject.SetActive(false);
-        _rollDice.Reactivcate();
+        _rollDice.Reactivate();
     }
 
     // Update is called once per frame

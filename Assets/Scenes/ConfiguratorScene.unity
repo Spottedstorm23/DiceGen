@@ -240,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 5
+      value: Dice Image 5
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -258,85 +258,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 94326940}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &296699080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 296699081}
-  - component: {fileID: 296699083}
-  - component: {fileID: 296699082}
-  m_Layer: 5
-  m_Name: Tip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &296699081
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296699080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1810100325}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 150, y: 95.599976}
-  m_SizeDelta: {x: 200, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &296699082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296699080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9103774, g: 1, b: 0.98930216, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Click last dice to remove it!
---- !u!222 &296699083
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296699080}
-  m_CullTransparentMesh: 1
 --- !u!1001 &314862395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,7 +379,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 8
+      value: Dice Image 8
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -887,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 9
+      value: Dice Image 9
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -1038,7 +959,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 7
+      value: Dice Image 7
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -1370,19 +1291,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a20dce667e2664da45f6764fa9bbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceSelect: {fileID: 1864495416890462400}
+  typeSelect: {fileID: 1864495416890462400}
   colorSelect: {fileID: 1759016939}
-  dice1_img: {fileID: 2741301491132591662}
-  dice2_img: {fileID: 1255683161}
-  dice3_img: {fileID: 1564799181}
-  dice4_img: {fileID: 875785899}
-  dice5_img: {fileID: 656200049}
-  dice6_img: {fileID: 1370014836}
-  dice7_img: {fileID: 1802693597}
-  dice8_img: {fileID: 314862399}
-  dice9_img: {fileID: 638475688}
-  dice10_img: {fileID: 1820845879}
-  warning: {fileID: 778230705}
+  dice1Img: {fileID: 2741301491132591662}
+  dice2Img: {fileID: 1255683161}
+  dice3Img: {fileID: 1564799181}
+  dice4Img: {fileID: 875785899}
+  dice5Img: {fileID: 656200049}
+  dice6Img: {fileID: 1370014836}
+  dice7Img: {fileID: 1802693597}
+  dice8Img: {fileID: 314862399}
+  dice9Img: {fileID: 638475688}
+  dice10Img: {fileID: 1820845879}
+  warningText: {fileID: 778230705}
   warningIcon: {fileID: 716093864}
 --- !u!1 &778230703
 GameObject:
@@ -1652,7 +1573,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 4
+      value: Dice Image 4
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -1967,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 2
+      value: Dice Image 2
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -2130,7 +2051,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 6
+      value: Dice Image 6
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -2439,7 +2360,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 3
+      value: Dice Image 3
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -2585,7 +2506,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 10
+      value: Dice Image 10
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
@@ -3078,7 +2999,6 @@ RectTransform:
   - {fileID: 314862396}
   - {fileID: 638475685}
   - {fileID: 1731336348}
-  - {fileID: 296699081}
   - {fileID: 778230704}
   - {fileID: 716093863}
   m_Father: {fileID: 0}
@@ -3471,7 +3391,7 @@ PrefabInstance:
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: m_Name
-      value: Dice 1
+      value: Dice Image 1
       objectReference: {fileID: 0}
     - target: {fileID: 4314870173975293276, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}

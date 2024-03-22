@@ -19,11 +19,11 @@ public class RemoveDice : MonoBehaviour
     }
     void RemoveOnClick()
     {
-        if (_image.name == "Dice " + _diceManager.diceCounter)
+        if (_image.name == "Dice Image " + _diceManager.diceCounter)
         {
             _image.gameObject.SetActive(false);
-            _diceManager.removeLastDice(_diceManager.diceCounter -1);
-            _diceManager.diceCounter--;
+            _diceManager.RemoveLastDice();
+            _diceManager.CountDown();
             
         }
     }

@@ -31,44 +31,44 @@ public class KeepDice : MonoBehaviour
         switch (_keep.name)
         {
             case "Dice Result Item 1":
-                _rollDice._dices[0].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(0, _rollDice._dices[0].keep);
+                _rollDice.Dices[0].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(0, _rollDice.Dices[0].LockResult);
                 break;
             case "Dice Result Item 2":
-                _rollDice._dices[1].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(1, _rollDice._dices[1].keep);
+                _rollDice.Dices[1].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(1, _rollDice.Dices[1].LockResult);
                 break;
             case "Dice Result Item 3":
-                _rollDice._dices[2].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(2, _rollDice._dices[2].keep);
+                _rollDice.Dices[2].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(2, _rollDice.Dices[2].LockResult);
                 break;
             case "Dice Result Item 4":
-                _rollDice._dices[3].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(3, _rollDice._dices[3].keep);
+                _rollDice.Dices[3].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(3, _rollDice.Dices[3].LockResult);
                 break;
             case "Dice Result Item 5":
-                _rollDice._dices[4].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(4, _rollDice._dices[4].keep);
+                _rollDice.Dices[4].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(4, _rollDice.Dices[4].LockResult);
                 break;
             case "Dice Result Item 6":
-                _rollDice._dices[5].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(5, _rollDice._dices[5].keep);
+                _rollDice.Dices[5].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(5, _rollDice.Dices[5].LockResult);
                 break;
             case "Dice Result Item 7":
-                _rollDice._dices[6].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(6, _rollDice._dices[6].keep);
+                _rollDice.Dices[6].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(6, _rollDice.Dices[6].LockResult);
                 break;
             case "Dice Result Item 8":
-                _rollDice._dices[7].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(7, _rollDice._dices[7].keep);
+                _rollDice.Dices[7].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(7, _rollDice.Dices[7].LockResult);
                 break;
             case "Dice Result Item 9":
-                _rollDice._dices[8].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(8, _rollDice._dices[8].keep);
+                _rollDice.Dices[8].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(8, _rollDice.Dices[8].LockResult);
                 break;
             case "Dice Result Item 10":
-                _rollDice._dices[9].SetKeep();
-                _diceResultUpdater.UpdateKeepIcon(9, _rollDice._dices[9].keep);
+                _rollDice.Dices[9].InvertLockResult();
+                _diceResultUpdater.UpdateKeepIcon(9, _rollDice.Dices[9].LockResult);
                 break;
         }
     }

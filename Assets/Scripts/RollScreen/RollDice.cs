@@ -7,7 +7,7 @@ public class RollDice : MonoBehaviour
 {
     private Button _roll;
 
-    public Dice[] _dices = new Dice[10];
+    public Dice[] Dices = new Dice[10];
     public Text roundText;
     
     public GameObject enterButton;
@@ -30,9 +30,9 @@ public class RollDice : MonoBehaviour
         _roll = GetComponent<Button>();
         _roll.onClick.AddListener(Roll);
         
-        _diceManager = DiceManager.manager; 
+        _diceManager = DiceManager.Manager; 
         _roundsGiven = _diceManager.rounds;
-        _dices = _diceManager.allDice;
+        Dices = _diceManager.AllDice;
         _diceGiven = _diceManager.diceCounter;
         
         _diceResultUpdater = GameObject.Find("ResultUpdater").gameObject.GetComponent<DiceResultUpdater>();
@@ -50,49 +50,49 @@ public class RollDice : MonoBehaviour
         }
         for (int i = 0; i < _diceGiven; i++) 
         {
-            if (_dices[i] == null || _dices[i].keep)
+            if (Dices[i] == null || Dices[i].LockResult)
             {
                 continue;
             }
-            switch (_dices[i].type)
+            switch (Dices[i].Type)
             {
-                case "D2":
-                    _dices[i].SetResult(FlipCoin());
+                case DiceTypes.D2:
+                    Dices[i].SetResult(FlipCoin());
                     break;
                 
-                case "D4":
-                    _dices[i].SetResult(RollD4());
+                case DiceTypes.D4:
+                    Dices[i].SetResult(RollD4());
                     break;
                 
-                case "D6":
-                    _dices[i].SetResult(RollD6());
+                case DiceTypes.D6:
+                    Dices[i].SetResult(RollD6());
                     break;
                 
-                case "D8":
-                    _dices[i].SetResult(RollD8());
+                case DiceTypes.D8:
+                    Dices[i].SetResult(RollD8());
                     break;
                 
-                case "D10":
-                    _dices[i].SetResult(RollD10());
+                case DiceTypes.D10:
+                    Dices[i].SetResult(RollD10());
                     break;
                 
-                case "D00":
-                    _dices[i].SetResult(RollD00());
+                case DiceTypes.D00:
+                    Dices[i].SetResult(RollD00());
                     break;
                 
-                case "D12":
-                    _dices[i].SetResult(RollD12());
+                case DiceTypes.D12:
+                    Dices[i].SetResult(RollD12());
                     break;
                 
-                case "D20":
-                    _dices[i].SetResult(RollD20());
+                case DiceTypes.D20:
+                    Dices[i].SetResult(RollD20());
                     break;
             }
             _diceResultUpdater.ActivateResultItem(i);
-            _diceResultUpdater.UpdateKeepIcon(i, _dices[i].keep);
-            _diceResultUpdater.SetDiceName(i, _dices[i].type, _dices[i].color);
-            _diceResultUpdater.SetDiceImage(i, _dices[i].type, _dices[i].color);
-            _diceResultUpdater.SetEyeValue(i, _dices[i].result.ToString());
+            _diceResultUpdater.UpdateKeepIcon(i, Dices[i].LockResult);
+            _diceResultUpdater.SetDiceName(i, Dices[i].Type.ToString(), Dices[i].Color.ToString());
+            _diceResultUpdater.SetDiceImage(i, Dices[i].Type.ToString(), Dices[i].Color.ToString());
+            _diceResultUpdater.SetEyeValue(i, Dices[i].Result.ToString());
         }
     }
 
@@ -139,7 +139,7 @@ public class RollDice : MonoBehaviour
         roundText.text = "Roll " + _roundsDone + " / " + _roundsGiven;
     }
 
-    public void Reactivcate()
+    public void Reactivate()
     {
         _roll.interactable = true;
         _roundsDone = 0;

@@ -24,6 +24,6 @@ public class ReturnToConfig : MonoBehaviour
     void ReturnToConf()
     {
         SceneManager.LoadScene("ConfiguratorScene");
-        Destroy(DiceManager.manager.gameObject);
+        Destroy(DiceManager.Manager.gameObject);
     }
 }
