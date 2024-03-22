@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RollScreenScene.unity
     guid: 3aece6c63cfb4a04ab0ed4204826a390
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 662119739d04e288ebc1638489d1fd21,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 423bc68f19543d090b94e6dd0cb8bdff, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 5bd5a5a314095ce4a84500bfda9f05b1, type: 2}
-  m_UseUCBPForAssetBundles: 0
