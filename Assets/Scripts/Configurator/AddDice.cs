@@ -1,170 +1,183 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AddDice : MonoBehaviour
+namespace Configurator
 {
-    public Dropdown diceSelect;
-    public Dropdown colorSelect;
-    public Image dice1_img;
-    public Image dice2_img;
-    public Image dice3_img;
-    public Image dice4_img;
-    public Image dice5_img;
-    public Image dice6_img;
-    public Image dice7_img;
-    public Image dice8_img;
-    public Image dice9_img;
-    public Image dice10_img;
-    public Text warning;
-    public Image warningIcon;
-    private Button _add;
-    private DiceManager _diceManager;
-
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Class for all necessary actions to add a dice to the current configuration. This includes backend settings as well as frontend settings.
+    /// </summary>
+    /// <description>
+    /// <para>
+    /// This class stores all necessary functions to add a dice in frontend as well as in backend.
+    /// In general it is created to add up to 10 different dices.
+    /// </para>
+    /// <para>
+    /// Set dice in <see cref="DiceManager"/>:
+    /// On adding a dice it's configuration will be stored in the DiceManager
+    /// </para>
+    /// <para>
+    /// Set dice in Frontend:
+    /// When a dice is added, a graphic of its type and color will appear in the scene.
+    /// </para>
+    /// <param name="typeSelect">Dropdown to select a specif diceType. Set in Scene </param>
+    /// <param name="colorSelect">Dropdown to select a specif color. Set in Scene </param>
+    /// <param name="Images">10 Images where the dice graphics will be displayed. Set in Scene </param>
+    /// <param name="Warning">Text and Icon to provide warning feedback. Set in Scene </param>
+    /// </description>
+    public class AddDice : MonoBehaviour
     {
-        _add = GetComponent<Button>();
-        _add.onClick.AddListener(AddDiceOnClick);
-        _diceManager = GameObject.Find("DiceManager").GetComponent<DiceManager>();
-    }
+        /*
+     * Dropdowns to configure a dice, they are set in the scene
+     */
+        public Dropdown typeSelect;
+        public Dropdown colorSelect;
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+        /*
+     * Images where a dice graphic will appear after adding a dice
+     */
+        public Image dice1Img;
+        public Image dice2Img;
+        public Image dice3Img;
+        public Image dice4Img;
+        public Image dice5Img;
+        public Image dice6Img;
+        public Image dice7Img;
+        public Image dice8Img;
+        public Image dice9Img;
+        public Image dice10Img;
 
-    void AddDiceOnClick()
-    {
-        warning.text = "";
-        warningIcon.gameObject.SetActive(false);
+        /*
+     *  Objects that are needed to display a warning if necessary
+     */
+        public Text warningText;
+        public Image warningIcon;
 
+        /*
+     * private Objects as helpers
+     */
+        private Button _add;
+        private DiceManager _diceManager;
+
+        /// <summary>
+        /// Sets the private Helperobjects <c>_add</c> and <c>_diceManager</c>.
+        /// Also adds the onClick-ActionListener to the button the script is attached to.
+        /// </summary>
+        private void Start()
+        {
+            _add = GetComponent<Button>();
+            _add.onClick.AddListener(AddDiceOnClick);
+            _diceManager = DiceManager.Manager;
+        }
+
+        /// <summary>
+        /// Combines all necessary actions to create a dice
+        /// </summary>
+        /// <description>
+        /// <para>
+        /// Function gets color and type of the dice from the Dropdowns.
+        /// If these are not set a warning is issued to the user.
+        /// </para>
+        /// <para>
+        /// If set the dice is added to the frontend as well as stored in <see cref="DiceManager"/>'s AllDice-Array.
+        /// Also the counter of the dices in general will be updated.
+        /// </para>
+        /// </description>
+        private void AddDiceOnClick()
+        {
+            var color = (DiceColors)colorSelect.value;
+            var diceType = (DiceTypes)typeSelect.value;
+            var spriteName = diceType + "_" + color;
+            var numberOfDice = _diceManager.diceCounter;
         
-        string color = SelectColor(colorSelect.value);
-        string diceType = SelectDiceType(diceSelect.value);
-        string spriteName = diceType + "_" + color;
-        int tmpCount = _diceManager.diceCounter;
+            ResetWarning();
 
-        if (diceType == "none" || color == "none")
-        {
-            warning.text = "Please make sure to have Dice and Color selected!";
-            warningIcon.gameObject.SetActive(true);
-            return;
-        }
-        
-        if (tmpCount == 0)
-        {
-            dice1_img.gameObject.SetActive(true);
-            dice1_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 1)
-        {
-            dice2_img.gameObject.SetActive(true);;
-            dice2_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 2)
-        {
-            dice3_img.gameObject.SetActive(true);;
-            dice3_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 3)
-        {
-            dice4_img.gameObject.SetActive(true);;
-            dice4_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 4)
-        {
-            dice5_img.gameObject.SetActive(true);;
-            dice5_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 5)
-        {
-            dice6_img.gameObject.SetActive(true);;
-            dice6_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 6)
-        {
-            dice7_img.gameObject.SetActive(true);;
-            dice7_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 7)
-        {
-            dice8_img.gameObject.SetActive(true);;
-            dice8_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 8)
-        {
-            dice9_img.gameObject.SetActive(true);;
-            dice9_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
-        }
-        else if (tmpCount == 9)
-        {
-            dice10_img.gameObject.SetActive(true);;
-            dice10_img.sprite = Resources.Load<Sprite>(diceType+ "/" + spriteName);
+            if (diceType == DiceTypes.None || color == DiceColors.None)
+            {
+                warningText.text = "Please make sure to have Dice and Color selected!";
+                warningIcon.gameObject.SetActive(true);
+                return;
+            }
+
+            AddDiceToFrontend(numberOfDice, diceType.ToString(), spriteName);
+
+            _diceManager.AddDiceToConfiguration(new Dice(diceType, color));
+            _diceManager.CountUp();
+
+            if (_diceManager.diceCounter == 10)
+            {
+                HideAddButton();
+            }
         }
 
-        _diceManager.UpdateDice(_diceManager.diceCounter, new Dice(diceType, color));
-        _diceManager.diceCounter++;
-        if(_diceManager.diceCounter == 10)
+        /// <summary>
+        /// Adds a dice graphic to its place in the frontend. 
+        /// </summary>
+        /// <param name="diceNumber">Integer with the current number of dices in configuration.</param>
+        /// <param name="diceTypeString">String with the type e.g. "D2" or "D10"</param>
+        /// <param name="spriteName">String with the Path/Name String corresponding to the combination"</param>
+        private void AddDiceToFrontend(int diceNumber, string diceTypeString, string spriteName)
         {
-            RemoveAddButton();
+            switch (diceNumber)
+            {
+                case 0:
+                    dice1Img.gameObject.SetActive(true);
+                    dice1Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 1:
+                    dice2Img.gameObject.SetActive(true);
+                    dice2Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 2:
+                    dice3Img.gameObject.SetActive(true);
+                    dice3Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 3:
+                    dice4Img.gameObject.SetActive(true);
+                    dice4Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 4:
+                    dice5Img.gameObject.SetActive(true);
+                    dice5Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 5:
+                    dice6Img.gameObject.SetActive(true);
+                    dice6Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 6:
+                    dice7Img.gameObject.SetActive(true);
+                    dice7Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 7:
+                    dice8Img.gameObject.SetActive(true);
+                    dice8Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 8:
+                    dice9Img.gameObject.SetActive(true);
+                    dice9Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+                case 9:
+                    dice10Img.gameObject.SetActive(true);
+                    dice10Img.sprite = Resources.Load<Sprite>(diceTypeString + "/" + spriteName);
+                    break;
+            }
         }
-    }
+
+        /// <summary>
+        /// Resets the warning text to an empty text and hides the icon.
+        /// </summary>
+        private void ResetWarning()
+        {
+            warningText.text = "";
+            warningIcon.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Hides the add button, so it cannot be click anymore.
+        /// </summary>
+        private void HideAddButton()
+        {
+            _add.gameObject.SetActive(false);
+        }
     
-    void RemoveAddButton(){
-        _add.gameObject.SetActive(false);
-    }
-    
-    string SelectColor(int colorDropValue)
-    {
-        switch (colorDropValue)
-        {
-            case 1:
-                return "White";
-            case 2:
-                return "Black";
-            case 3:
-                return "Red";
-            case 4:
-                return "Blue";
-            case 5:
-                return "Green";
-            case 6:
-                return "Cyan";
-            case 7:
-                return "Magenta";
-            case 8:
-                return "Yellow";
-            default:
-                return "none";
-        }
-    }
-
-    string SelectDiceType(int diceDropValue)
-    {
-        switch (diceDropValue)
-        {
-            case 1:
-                return "D2";
-            case 2:
-                return "D4";
-            case 3:
-                return "D6";
-            case 4:
-                return "D8";
-            case 5:
-                return "D10";
-            case 6:
-                return "D00";
-            case 7:
-                return "D12";
-            case 8:
-                return "D20";
-            default:
-                return "none";
-        }
     }
 }
-
-

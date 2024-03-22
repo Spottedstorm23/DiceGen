@@ -1,28 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CloseTutorial : MonoBehaviour
+namespace Tutorial
 {
-    private Button _close;
-
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Closes the Tutorial scene and continues to configurator
+    /// </summary>
+    public class CloseTutorial : MonoBehaviour
     {
-        _close = GetComponent<Button>();
-        _close.onClick.AddListener(ChangeScene);
-    }
+        private Button _close;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void ChangeScene()
-    {
-        SceneManager.LoadScene("ConfiguratorScene");
+        /// <summary>
+        /// Adds the listener
+        /// </summary>
+        private void Start()
+        {
+            _close = GetComponent<Button>();
+            _close.onClick.AddListener(() =>
+                SceneChanger.ChangeScene(SceneChanger.Scenes.TutorialScene, SceneChanger.Scenes.ConfiguratorScene));
+        }
     }
 }
