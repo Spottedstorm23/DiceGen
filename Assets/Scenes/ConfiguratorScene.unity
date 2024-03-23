@@ -2611,6 +2611,11 @@ PrefabInstance:
       objectReference: {fileID: 1259735173}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
       value: Choose Color
       objectReference: {fileID: 0}
@@ -2653,6 +2658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[8].m_Text
       value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[9].m_Text
+      value: Multicolored
       objectReference: {fileID: 0}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
@@ -2707,6 +2717,12 @@ PrefabInstance:
       propertyPath: m_Options.m_Options.Array.data[8].m_Image
       value: 
       objectReference: {fileID: 21300000, guid: 223f90aa1c74f4a498f65cb823df7f84,
+        type: 3}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[9].m_Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 41045ea093323c641a6d3eae3e4335ea,
         type: 3}
     - target: {fileID: 3451769011477394179, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
@@ -3494,6 +3510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
       value: Choose Type
       objectReference: {fileID: 0}
@@ -3525,16 +3546,21 @@ PrefabInstance:
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[6].m_Text
-      value: D10 Percent (00-90)
+      value: D0 (0-9) Percentile
       objectReference: {fileID: 0}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[7].m_Text
-      value: D12 (1-12)
+      value: D00  (00-90) Percentile
       objectReference: {fileID: 0}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[8].m_Text
+      value: D12 (1-12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[9].m_Text
       value: D20 (1-20)
       objectReference: {fileID: 0}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
@@ -3577,17 +3603,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[6].m_Image
       value: 
-      objectReference: {fileID: 21300000, guid: 78bb8bd1c6835ca4eaf84b91ee09fc9e,
+      objectReference: {fileID: 21300000, guid: 4c195ee3dc8edba459d56ad82b426801,
         type: 3}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[7].m_Image
       value: 
-      objectReference: {fileID: 21300000, guid: 8c75ee38e4d3e2249b8955792e5f13d2,
+      objectReference: {fileID: 21300000, guid: 78bb8bd1c6835ca4eaf84b91ee09fc9e,
         type: 3}
     - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[8].m_Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c75ee38e4d3e2249b8955792e5f13d2,
+        type: 3}
+    - target: {fileID: 3423854599417948201, guid: 33960674b0f835346b8bf745b2e29c97,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[9].m_Image
       value: 
       objectReference: {fileID: 21300000, guid: 424d07848c84f6d4786d696b9a552715,
         type: 3}

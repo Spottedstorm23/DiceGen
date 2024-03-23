@@ -17,7 +17,7 @@ namespace RollScreen
         public Text roundText;
         public Button enterButton;
         public InputField roundInput;
-        
+
         private Transform _diceResultText;
 
         private DiceResultUpdater _diceResultUpdater;
@@ -85,6 +85,10 @@ namespace RollScreen
 
                     case DiceTypes.D10:
                         RollDices[i].SetResult(RollD10());
+                        break;
+
+                    case DiceTypes.D0:
+                        RollDices[i].SetResult(RollD0());
                         break;
 
                     case DiceTypes.D00:
@@ -156,10 +160,19 @@ namespace RollScreen
         /// <summary>
         /// Simulates a d10 roll
         /// </summary>
-        /// <returns>1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 100</returns>
+        /// <returns>1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 </returns>
         public int RollD10()
         {
             return Random.Range(1, 11);
+        }
+
+        /// <summary>
+        /// Simulates a d0 (d10 with other interpretation of values) roll
+        /// </summary>
+        /// <returns>0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 </returns>
+        public int RollD0()
+        {
+            return Random.Range(0, 10);
         }
 
         /// <summary>
@@ -169,6 +182,11 @@ namespace RollScreen
         private static int RollD00()
         {
             int temp = Random.Range(0, 10);
+            if (temp == 0)
+            {
+                return 00;
+            }
+
             return temp * 10;
         }
 
@@ -208,7 +226,7 @@ namespace RollScreen
             _roundsDone = 0;
             _roundsGiven = _diceManager.rounds;
         }
-        
+
         /// <summary>
         /// Makes input fields visible
         /// </summary>
