@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace RollScreen
@@ -9,6 +10,7 @@ namespace RollScreen
     /// <param name="roundText"> Textfield that displays the number of rolls that were done, as well as the amount that are set. Is set in Scene.</param>
     /// <param name="enterButton"> Button that enters the new amount of rolls. Is set in Scene.</param>
     /// <param name="roundInput"> InputField to enter new rounds. Set in scene</param>
+    /// <param name="rollDelay"> The amount of second the code-side dice rolling should be delayed. Can be set in scene</param>
     public class RollDice : MonoBehaviour
     {
         private Button _roll;
@@ -17,6 +19,7 @@ namespace RollScreen
         public Text roundText;
         public Button enterButton;
         public InputField roundInput;
+        public float rollDelay = 2.5f;
 
         private Transform _diceResultText;
 
@@ -29,12 +32,13 @@ namespace RollScreen
 
 
         /// <summary>
-        /// Access all fields and objects necessary
+        /// Access all fields and objects necessary.
+        /// The function called upon a click/ tap on the rollButton is delayed, to give the impression of rolling the diceObjects first.
         /// </summary>
         private void Start()
         {
             _roll = GetComponent<Button>();
-            _roll.onClick.AddListener(Roll);
+            _roll.onClick.AddListener(() => Invoke(nameof(Roll), rollDelay));
 
             _diceManager = DiceManager.Manager;
             _roundsGiven = _diceManager.rounds;
