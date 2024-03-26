@@ -51,6 +51,9 @@ namespace RollScreen
             _diceResultUpdater = DiceResultUpdater.Updater;
         }
 
+        /// <summary>
+        /// Give feedback to the user upon pressing roll that the dices are rolled
+        /// </summary>
         private void Feedback()
         {
             rollingText.text = "Rolling...";
@@ -58,6 +61,7 @@ namespace RollScreen
 
         /// <summary>
         ///Iterates through the dices and rolls them based on their type and their locked status
+        /// During this the roll button is disabled and will be enabled at the end
         /// </summary>
         private void Roll()
         {
