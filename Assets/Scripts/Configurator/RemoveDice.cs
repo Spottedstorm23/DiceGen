@@ -11,6 +11,7 @@ namespace Configurator
         private DiceManager _diceManager;
         private Image _image;
         private Button _imgButton;
+        public Button add;
 
         /// <summary>
         /// Gets button and image of the Game object ist attached to and adds an listener for onClick.
@@ -33,6 +34,11 @@ namespace Configurator
             _image.gameObject.SetActive(false);
             _diceManager.RemoveLastDice();
             _diceManager.CountDown();
+
+            if (_diceManager.diceCounter < 10 && !add.IsActive())
+            {
+                add.gameObject.SetActive(true);
+            }
         }
     }
 }
