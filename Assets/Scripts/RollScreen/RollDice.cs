@@ -17,6 +17,7 @@ namespace RollScreen
 
         public Dice[] RollDices;
         public Text roundText;
+        public Text rollingText;
         public Button enterButton;
         public InputField roundInput;
         public float rollDelay = 2.5f;
@@ -38,6 +39,8 @@ namespace RollScreen
         private void Start()
         {
             _roll = GetComponent<Button>();
+            _roll.onClick.AddListener(Feedback);
+            _roll.onClick.AddListener(() => _roll.interactable = false);
             _roll.onClick.AddListener(() => Invoke(nameof(Roll), rollDelay));
 
             _diceManager = DiceManager.Manager;
@@ -48,18 +51,18 @@ namespace RollScreen
             _diceResultUpdater = DiceResultUpdater.Updater;
         }
 
+        private void Feedback()
+        {
+            rollingText.text = "Rolling...";
+        }
+
         /// <summary>
         ///Iterates through the dices and rolls them based on their type and their locked status
         /// </summary>
         private void Roll()
         {
             UpdateRounds();
-            if (_roundsDone == _roundsGiven)
-            {
-                roundText.text = "";
-                _roll.interactable = false;
-                ActiveInput();
-            }
+
 
             for (var i = 0; i < _diceGiven; i++)
             {
@@ -109,6 +112,11 @@ namespace RollScreen
                 }
 
                 CallToDiceResultUpdater(i);
+                _roll.interactable = true;
+                if (_roundsDone != _roundsGiven) continue;
+                roundText.text = "";
+                _roll.interactable = false;
+                ActiveInput();
             }
         }
 
@@ -218,6 +226,7 @@ namespace RollScreen
         private void UpdateRounds()
         {
             _roundsDone++;
+            rollingText.text = "";
             roundText.text = "Roll " + _roundsDone + " / " + _roundsGiven;
         }
 
