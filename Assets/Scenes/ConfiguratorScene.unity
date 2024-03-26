@@ -138,6 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: d9cbddb65af65074d966d3f9af61bcc9, type: 3}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
       propertyPath: addButton
       value: 
       objectReference: {fileID: 722051406}
@@ -275,6 +280,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 8b0dca83bbb67224d8bd14238174b4da, type: 3}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: addButton
@@ -706,6 +716,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
       propertyPath: addButton
       value: 
       objectReference: {fileID: 722051406}
@@ -855,6 +870,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 8c75ee38e4d3e2249b8955792e5f13d2, type: 3}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: addButton
@@ -1472,6 +1492,11 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 3e0732477dc8c674290756578f92fbcb, type: 3}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
       propertyPath: addButton
       value: 
       objectReference: {fileID: 722051406}
@@ -1787,6 +1812,11 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 78bb8bd1c6835ca4eaf84b91ee09fc9e, type: 3}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
       propertyPath: addButton
       value: 
       objectReference: {fileID: 722051406}
@@ -1948,6 +1978,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 78b8f7992fbd6ce4c9e3f43acae65853, type: 3}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: addButton
@@ -2259,6 +2294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
       propertyPath: addButton
       value: 
       objectReference: {fileID: 722051406}
@@ -2403,6 +2443,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1810100325}
     m_Modifications:
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: addButton
@@ -3304,6 +3349,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1810100325}
     m_Modifications:
+    - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
+        type: 3}
+      propertyPath: add
+      value: 
+      objectReference: {fileID: 722051408}
     - target: {fileID: 681639492450471417, guid: 3f930c77a7b1b6c46b54be205f869423,
         type: 3}
       propertyPath: addButton

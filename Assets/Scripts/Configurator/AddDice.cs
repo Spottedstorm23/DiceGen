@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,14 +28,14 @@ namespace Configurator
     public class AddDice : MonoBehaviour
     {
         /*
-     * Dropdowns to configure a dice, they are set in the scene
-     */
+         * Dropdowns to configure a dice, they are set in the scene
+         */
         public Dropdown typeSelect;
         public Dropdown colorSelect;
 
         /*
-     * Images where a dice graphic will appear after adding a dice
-     */
+         * Images where a dice graphic will appear after adding a dice
+         */
         public Image dice1Img;
         public Image dice2Img;
         public Image dice3Img;
@@ -47,14 +48,14 @@ namespace Configurator
         public Image dice10Img;
 
         /*
-     *  Objects that are needed to display a warning if necessary
-     */
+         *  Objects that are needed to display a warning if necessary
+         */
         public Text warningText;
         public Image warningIcon;
 
         /*
-     * private Objects as helpers
-     */
+         * private Objects as helpers
+         */
         private Button _add;
         private DiceManager _diceManager;
 
@@ -88,7 +89,7 @@ namespace Configurator
             var diceType = (DiceTypes)typeSelect.value;
             var spriteName = diceType + "_" + color;
             var numberOfDice = _diceManager.diceCounter;
-        
+
             ResetWarning();
 
             if (diceType == DiceTypes.None || color == DiceColors.None)
@@ -178,6 +179,5 @@ namespace Configurator
         {
             _add.gameObject.SetActive(false);
         }
-    
     }
 }
