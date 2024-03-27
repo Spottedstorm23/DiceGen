@@ -1318,16 +1318,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeSelect: {fileID: 1864495416890462400}
   colorSelect: {fileID: 1759016939}
-  dice1Img: {fileID: 2741301491132591662}
-  dice2Img: {fileID: 1255683161}
-  dice3Img: {fileID: 1564799181}
-  dice4Img: {fileID: 875785899}
-  dice5Img: {fileID: 656200049}
-  dice6Img: {fileID: 1370014836}
-  dice7Img: {fileID: 1802693597}
-  dice8Img: {fileID: 314862399}
-  dice9Img: {fileID: 638475688}
-  dice10Img: {fileID: 1820845879}
+  diceImages:
+  - {fileID: 2741301491132591662}
+  - {fileID: 1255683161}
+  - {fileID: 1564799181}
+  - {fileID: 875785899}
+  - {fileID: 656200049}
+  - {fileID: 1370014836}
+  - {fileID: 1802693597}
+  - {fileID: 314862399}
+  - {fileID: 638475688}
+  - {fileID: 1820845879}
   warningText: {fileID: 778230705}
   warningIcon: {fileID: 716093864}
 --- !u!1 &778230703

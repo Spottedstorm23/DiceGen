@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class OpenEndPanel : MonoBehaviour
 {
-    public GameObject closePanel;
+    [SerializeField] private GameObject closePanel;
 
     /// <summary>
     /// Listens for the Input of an pressed key and checks if its the Escape-Key or on Android the Back one. Then opens the closePanel.

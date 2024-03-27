@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace RollScreen
@@ -9,8 +8,8 @@ namespace RollScreen
     /// </summary>
     public class KeepConfig : MonoBehaviour
     {
-        public Button enter;
-        public InputField newRounds;
+        [SerializeField] private Button enter;
+        [SerializeField] private InputField newRounds;
         private RollDice _rollDice;
 
         

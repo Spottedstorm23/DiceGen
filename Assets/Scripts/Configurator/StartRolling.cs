@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Configurator
@@ -21,7 +20,7 @@ namespace Configurator
 
         private DiceManager _diceManager;
 
-        public Image warningIcon;
+        [SerializeField] private Image warningIcon;
 
 
         /// <summary>

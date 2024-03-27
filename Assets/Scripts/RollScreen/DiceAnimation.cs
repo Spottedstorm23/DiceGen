@@ -14,10 +14,10 @@ namespace RollScreen
         private Button _roll;
         private DiceManager _diceManager;
 
-        public GameObject[] diceAnimationGameObjects;
-        public GameObject[] instancedDices = new GameObject[10];
-        public Material[] colorMaterials;
-        public Mesh[] typeMeshes;
+        [SerializeField] private GameObject[] diceAnimationGameObjects;
+        private GameObject[] _instancedDices = new GameObject[10];
+        [SerializeField] private Material[] colorMaterials;
+        [SerializeField] private Mesh[] typeMeshes;
 
 
         /// <summary>
@@ -62,19 +62,19 @@ namespace RollScreen
             var tempType = _diceManager.AllDice[i].Type;
             var tempColor = _diceManager.AllDice[i].Color;
 
-            instancedDices[i] = Instantiate(diceAnimationGameObjects[i]);
+            _instancedDices[i] = Instantiate(diceAnimationGameObjects[i]);
 
-            instancedDices[i].GetComponent<MeshFilter>().mesh = typeMeshes[(int)tempType];
+            _instancedDices[i].GetComponent<MeshFilter>().mesh = typeMeshes[(int)tempType];
 
-            instancedDices[i].AddComponent<MeshCollider>();
-            instancedDices[i].GetComponent<MeshCollider>().convex = true;
+            _instancedDices[i].AddComponent<MeshCollider>();
+            _instancedDices[i].GetComponent<MeshCollider>().convex = true;
 
-            instancedDices[i].GetComponent<Renderer>().material = colorMaterials[(int)tempColor];
+            _instancedDices[i].GetComponent<Renderer>().material = colorMaterials[(int)tempColor];
 
-            instancedDices[i].transform.Rotate(Random.Range(0, 46), Random.Range(0, 46), Random.Range(0, 46));
+            _instancedDices[i].transform.Rotate(Random.Range(0, 46), Random.Range(0, 46), Random.Range(0, 46));
             ScaleDependingOnType(tempType, i);
 
-            instancedDices[i].SetActive(true);
+            _instancedDices[i].SetActive(true);
         }
 
         /// <summary>
@@ -83,9 +83,9 @@ namespace RollScreen
         /// <param name="i">Key of the current dice</param>
         private void ResetObject(int i)
         {
-            if (instancedDices[i] != null)
+            if (_instancedDices[i] != null)
             {
-                Destroy(instancedDices[i]);
+                Destroy(_instancedDices[i]);
             }
         }
 
@@ -97,12 +97,12 @@ namespace RollScreen
         /// <param name="i">The key of the current dice, so it can be scaled</param>
         private void ScaleDependingOnType(DiceTypes tempType, int i)
         {
-            instancedDices[i].transform.localScale = tempType switch
+            _instancedDices[i].transform.localScale = tempType switch
             {
                 DiceTypes.D12 => new Vector3(0.9f, 0.9f, 0.9f),
                 DiceTypes.D2 => new Vector3(2f, 0.1f, 2f),
                 DiceTypes.D4 => new Vector3(2f, 2f, 2f),
-                _ => instancedDices[i].transform.localScale
+                _ => _instancedDices[i].transform.localScale
             };
         }
     }
