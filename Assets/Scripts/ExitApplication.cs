@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -12,10 +9,10 @@ using UnityEngine.UI;
 /// <param name="panel">Panel where the buttons are located</param>
 public class ExitApplication : MonoBehaviour
 {
-    public Button yes;
-    public Button no;
+    [SerializeField] private Button yes;
+    [SerializeField] private Button no;
 
-    public GameObject panel;
+    [SerializeField] private GameObject panel;
 
     /// <summary>
     /// Add the eventListner

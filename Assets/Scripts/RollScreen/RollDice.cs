@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace RollScreen
 {
@@ -16,11 +17,11 @@ namespace RollScreen
         private Button _roll;
 
         public Dice[] RollDices;
-        public Text roundText;
-        public Text rollingText;
-        public Button enterButton;
-        public InputField roundInput;
-        public float rollDelay = 2.5f;
+        [SerializeField] private Text roundText;
+        [SerializeField] private Text rollingText;
+        [SerializeField] private Button enterButton;
+        [SerializeField] private InputField roundInput;
+        [SerializeField] private float rollDelay = 2.5f;
 
         private Transform _diceResultText;
 
@@ -113,6 +114,10 @@ namespace RollScreen
                     case DiceTypes.D20:
                         RollDices[i].SetResult(RollD20());
                         break;
+                    case DiceTypes.None:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
                 CallToDiceResultUpdater(i);
@@ -130,11 +135,31 @@ namespace RollScreen
         /// <param name="i"></param>
         private void CallToDiceResultUpdater(int i)
         {
+            var type = RollDices[i].Type;
+            var color = RollDices[i].Color;
+
             _diceResultUpdater.ActivateResultItem(i);
             _diceResultUpdater.UpdateLockIcon(i, RollDices[i].LockResult);
-            _diceResultUpdater.SetDiceName(i, RollDices[i].Type.ToString(), RollDices[i].Color.ToString());
-            _diceResultUpdater.SetDiceImage(i, RollDices[i].Type.ToString(), RollDices[i].Color.ToString());
-            _diceResultUpdater.SetEyeValue(i, RollDices[i].Result.ToString());
+            _diceResultUpdater.SetDiceName(i, type.ToString(), color.ToString());
+            _diceResultUpdater.SetDiceImage(i, type.ToString(), color.ToString());
+            _diceResultUpdater.SetEyeValue(i, ResultString(type, RollDices[i].Result), type == DiceTypes.D2);
+        }
+
+        /// <summary>
+        /// Some dice types have different names for their result. These should be displayed.
+        /// Coins show Head and Tails, while the 0 in a D00 is actually a 00
+        /// </summary>
+        /// <param name="type">Type of the current dice</param>
+        /// <param name="result">The value of the result</param>
+        /// <returns>Head | Tails | 00 | Result as string</returns>
+        private static string ResultString(DiceTypes type, int result)
+        {
+            return type switch
+            {
+                DiceTypes.D2 => result == 1 ? "Head" : "Tails",
+                DiceTypes.D00 => result == 0 ? "00" : result.ToString(),
+                _ => result.ToString()
+            };
         }
 
         /// <summary>
@@ -177,7 +202,7 @@ namespace RollScreen
         /// Simulates a d10 roll
         /// </summary>
         /// <returns>1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 </returns>
-        public int RollD10()
+        private static int RollD10()
         {
             return Random.Range(1, 11);
         }
@@ -186,7 +211,7 @@ namespace RollScreen
         /// Simulates a d0 (d10 with other interpretation of values) roll
         /// </summary>
         /// <returns>0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 </returns>
-        public int RollD0()
+        private static int RollD0()
         {
             return Random.Range(0, 10);
         }
@@ -247,7 +272,7 @@ namespace RollScreen
         /// <summary>
         /// Makes input fields visible
         /// </summary>
-        public void ActiveInput()
+        private void ActiveInput()
         {
             enterButton.gameObject.SetActive(true);
             roundInput.text = "";
