@@ -1,4 +1,12 @@
-﻿# DiceGen
+![Static Badge](https://img.shields.io/badge/Version-v4.2.0-%23b3e6ff?logo=android)
+![Static Badge](https://img.shields.io/badge/Android-6%2B-purple?logo=android)
+
+![Static Badge](https://img.shields.io/badge/Version-v1.1.0-%23b3e6ff?logo=windows)
+![Static Badge](https://img.shields.io/badge/Windows-64_Bit-purple?logo=windows)
+
+![Static Badge](https://img.shields.io/badge/Unity-2022.3.22f1-%23e6e6e6?logo=unity)
+
+ # DiceGen
 
 ## Task
 
