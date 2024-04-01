@@ -70,6 +70,7 @@ namespace RollScreen
         /// </summary>
         /// <param name="currentDice">Number of the dice looked at</param>
         /// <param name="eyes">Number of eyes that were rolled</param>
+        /// <param name="isD2">A boolean if the dice is a D2</param>
         public void SetEyeValue(int currentDice, string eyes, bool isD2)
         {
             var resultField = diceResultItems[currentDice].transform.Find("Dice Result").GetComponent<Text>();
@@ -80,7 +81,55 @@ namespace RollScreen
 
             resultField.text = eyes;
         }
-        
+
+        /// <summary>
+        /// For roleplays it is sometimes necessary to know if one rolled the highest or lowest possible value, to determine a success or failure. Thus these values are marked in the dice list
+        /// </summary>
+        /// <param name="currentDice">Current dice in the list</param>
+        /// <param name="type">It's type as not all of them need the colors</param>
+        /// <param name="eyes">The rolled value</param>
+        public void MarkResultField(int currentDice, DiceTypes type, int eyes)
+        {
+            var resultField = diceResultItems[currentDice].transform.Find("Dice Result").GetComponent<Text>();
+
+            switch (type)
+            {
+                // mark rolled ones as red
+                case DiceTypes.D4 when eyes == 1:
+                case DiceTypes.D6 when eyes == 1:
+                case DiceTypes.D8 when eyes == 1:
+                case DiceTypes.D10 when eyes == 1:
+                case DiceTypes.D12 when eyes == 1:
+                case DiceTypes.D20 when eyes == 1:
+                    resultField.color = new Color(0.9058824f, 0.1568628f, 0.05882353f);
+                    resultField.fontStyle = FontStyle.Bold;
+                    return;
+                // mark the highest possible value green
+                case DiceTypes.D4 when eyes == 4:
+                case DiceTypes.D6 when eyes == 6:
+                case DiceTypes.D8 when eyes == 8:
+                case DiceTypes.D10 when eyes == 10:
+                case DiceTypes.D12 when eyes == 12:
+                case DiceTypes.D20 when eyes == 20:
+                    resultField.color = new Color(0.4235294f, 0.8705882f, 0f);
+                    resultField.fontStyle = FontStyle.Bold;
+                    return;
+                // coins and the percentile dice to not have highest ore lowest and thus are not colored, as well as every other possible value
+                case DiceTypes.None:
+                case DiceTypes.D2:
+                case DiceTypes.D0:
+                case DiceTypes.D00:
+                default:
+                    resultField.color = new Color(0.7216981f, 1f, 0.9568667f);
+                    resultField.fontStyle = FontStyle.Normal;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// For D2 values the fontsize in the resultField needs to be reduced
+        /// </summary>
+        /// <param name="resultField">Current Textfield that is in need of smaller fontsize</param>
         private void SmallerTextSize(Text resultField)
         {
             resultField.fontSize = 15;

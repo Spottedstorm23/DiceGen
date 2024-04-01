@@ -153,6 +153,7 @@ namespace RollScreen
             _diceResultUpdater.SetDiceName(i, type.ToString(), color.ToString());
             _diceResultUpdater.SetDiceImage(i, type.ToString(), color.ToString());
             _diceResultUpdater.SetEyeValue(i, ResultString(type, RollDices[i].Result), type == DiceTypes.D2);
+            _diceResultUpdater.MarkResultField(i, type, RollDices[i].Result);
         }
 
         /// <summary>
