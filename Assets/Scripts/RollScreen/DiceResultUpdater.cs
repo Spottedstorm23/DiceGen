@@ -80,7 +80,7 @@ namespace RollScreen
 
             resultField.text = eyes;
         }
-
+        
         private void SmallerTextSize(Text resultField)
         {
             resultField.fontSize = 15;

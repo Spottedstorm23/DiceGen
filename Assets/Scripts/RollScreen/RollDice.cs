@@ -22,6 +22,10 @@ namespace RollScreen
         [SerializeField] private Button enterButton;
         [SerializeField] private InputField roundInput;
         [SerializeField] private float rollDelay = 2.5f;
+        [SerializeField] private GameObject stats;
+        [SerializeField] private Text[] statisticTexts;
+
+        private int[] _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
 
         private Transform _diceResultText;
 
@@ -127,6 +131,12 @@ namespace RollScreen
                 _roll.interactable = false;
                 ActiveInput();
             }
+
+            if (!AreAtLeastTwoD6()) return;
+            _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
+            stats.SetActive(true);
+            CreateStatistics();
+            WriteStatistics();
         }
 
         /// <summary>
@@ -277,6 +287,55 @@ namespace RollScreen
             enterButton.gameObject.SetActive(true);
             roundInput.text = "";
             roundInput.gameObject.SetActive(true);
+        }
+
+        /// <summary>
+        ///Checks if there at least 2 D6 in the configuration 
+        /// </summary>
+        /// <returns>True if at least 2 D6 are counted, else false</returns>
+        private bool AreAtLeastTwoD6()
+        {
+            var tempcount = 0;
+            for (var i = 0; i < _diceGiven; i++)
+            {
+                if (RollDices[i].Type == DiceTypes.D6)
+                {
+                    tempcount++;
+                }
+
+                if (tempcount == 2)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Counts the values of the D6 in the configurationm
+        /// </summary>
+        private void CreateStatistics()
+        {
+            for (var i = 0; i < DiceManager.Manager.diceCounter; i++)
+            {
+                var dice = DiceManager.Manager.AllDice[i];
+                if (dice.Type == DiceTypes.D6)
+                {
+                    _d6Counts[dice.Result - 1]++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Shows the counted D6 values on Screen
+        /// </summary>
+        private void WriteStatistics()
+        {
+            for (var i = 0; i < 6; i++)
+            {
+                statisticTexts[i].text = _d6Counts[i] == 0 ? "-" : _d6Counts[i].ToString();
+            }
         }
     }
 }
