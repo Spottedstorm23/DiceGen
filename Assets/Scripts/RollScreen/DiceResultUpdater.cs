@@ -121,7 +121,7 @@ namespace RollScreen
                     resultField.color = rollForHighest.isOn ? _green : _red;
                     resultField.fontStyle = FontStyle.Bold;
                     return;
-                // coins and the percentile dice to not have highest ore lowest and thus are not colored, as well as every other possible value
+                // coins and the percentile dice do not have highest or lowest and thus are not colored, as well as every other possible value
                 case DiceTypes.None:
                 case DiceTypes.D2:
                 case DiceTypes.D0:
