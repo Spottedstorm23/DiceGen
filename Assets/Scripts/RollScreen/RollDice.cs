@@ -135,7 +135,12 @@ namespace RollScreen
                 ActiveInput();
             }
 
-            if (!AreAtLeastTwoD6()) return;
+            if (!AreAtLeastTwoD6())
+            {
+                showStats.interactable = false;
+                return;
+            }
+
             _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
             stats.SetActive(showStats.isOn);
             CreateStatistics();
@@ -344,7 +349,8 @@ namespace RollScreen
             for (var i = 0; i < 6; i++)
             {
                 statisticTexts[i].text = _d6Counts[i] == 0 ? "-" : _d6Counts[i].ToString();
-                statisticOverRoundsTexts[i].text = _d6CountsOverRounds[i] == 0 ? "-" : _d6CountsOverRounds[i].ToString();
+                statisticOverRoundsTexts[i].text =
+                    _d6CountsOverRounds[i] == 0 ? "-" : _d6CountsOverRounds[i].ToString();
             }
         }
     }
