@@ -24,9 +24,11 @@ namespace RollScreen
         [SerializeField] private float rollDelay = 2.5f;
         [SerializeField] private GameObject stats;
         [SerializeField] private Text[] statisticTexts;
+        [SerializeField] private Text[] statisticOverRoundsTexts;
         [SerializeField] private Toggle showStats;
 
         private int[] _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
+        private int[] _d6CountsOverRounds = new[] { 0, 0, 0, 0, 0, 0 };
 
         private Transform _diceResultText;
 
@@ -138,6 +140,10 @@ namespace RollScreen
             stats.SetActive(showStats.isOn);
             CreateStatistics();
             WriteStatistics();
+            if (_roundsDone == _roundsGiven)
+            {
+                _d6CountsOverRounds = new[] { 0, 0, 0, 0, 0, 0 };
+            }
         }
 
         /// <summary>
@@ -325,6 +331,7 @@ namespace RollScreen
                 if (dice.Type == DiceTypes.D6)
                 {
                     _d6Counts[dice.Result - 1]++;
+                    _d6CountsOverRounds[dice.Result - 1]++;
                 }
             }
         }
@@ -337,6 +344,7 @@ namespace RollScreen
             for (var i = 0; i < 6; i++)
             {
                 statisticTexts[i].text = _d6Counts[i] == 0 ? "-" : _d6Counts[i].ToString();
+                statisticOverRoundsTexts[i].text = _d6CountsOverRounds[i] == 0 ? "-" : _d6CountsOverRounds[i].ToString();
             }
         }
     }
