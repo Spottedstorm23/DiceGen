@@ -14,10 +14,16 @@ namespace RollScreen
     {
         [SerializeField] private GameObject[] diceResultItems;
         public static DiceResultUpdater Updater;
+        [SerializeField] private Toggle rollForHighest;
+
+        private readonly Color _red = new Color(0.9058824f, 0.1568628f, 0.05882353f);
+        private readonly Color _green = new Color(0.4235294f, 0.8705882f, 0f);
+        private readonly Color _blue = new Color(0.7216981f, 1f, 0.9568667f);
 
         private void Start()
         {
             Updater = this;
+            rollForHighest.onValueChanged.AddListener((bool _) => InvertColors());
         }
 
         /// <summary>
@@ -92,6 +98,7 @@ namespace RollScreen
         {
             var resultField = diceResultItems[currentDice].transform.Find("Dice Result").GetComponent<Text>();
 
+
             switch (type)
             {
                 // mark rolled ones as red
@@ -101,7 +108,7 @@ namespace RollScreen
                 case DiceTypes.D10 when eyes == 1:
                 case DiceTypes.D12 when eyes == 1:
                 case DiceTypes.D20 when eyes == 1:
-                    resultField.color = new Color(0.9058824f, 0.1568628f, 0.05882353f);
+                    resultField.color = rollForHighest.isOn ? _red : _green;
                     resultField.fontStyle = FontStyle.Bold;
                     return;
                 // mark the highest possible value green
@@ -111,18 +118,38 @@ namespace RollScreen
                 case DiceTypes.D10 when eyes == 10:
                 case DiceTypes.D12 when eyes == 12:
                 case DiceTypes.D20 when eyes == 20:
-                    resultField.color = new Color(0.4235294f, 0.8705882f, 0f);
+                    resultField.color = rollForHighest.isOn ? _green : _red;
                     resultField.fontStyle = FontStyle.Bold;
                     return;
-                // coins and the percentile dice to not have highest ore lowest and thus are not colored, as well as every other possible value
+                // coins and the percentile dice do not have highest or lowest and thus are not colored, as well as every other possible value
                 case DiceTypes.None:
                 case DiceTypes.D2:
                 case DiceTypes.D0:
                 case DiceTypes.D00:
                 default:
-                    resultField.color = new Color(0.7216981f, 1f, 0.9568667f);
+                    resultField.color = _blue;
                     resultField.fontStyle = FontStyle.Normal;
                     break;
+            }
+        }
+
+
+        /// <summary>
+        /// Inverts the colors from red to green and vice versa
+        /// </summary>
+        private void InvertColors()
+        {
+            for (var i = 0; i < DiceManager.Manager.diceCounter; i++)
+            {
+                var resultField = diceResultItems[i].transform.Find("Dice Result").GetComponent<Text>();
+                if (resultField.color == _green)
+                {
+                    resultField.color = _red;
+                }
+                else if (resultField.color == _red)
+                {
+                    resultField.color = _green;
+                }
             }
         }
 
