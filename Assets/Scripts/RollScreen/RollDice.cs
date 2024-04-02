@@ -24,6 +24,7 @@ namespace RollScreen
         [SerializeField] private float rollDelay = 2.5f;
         [SerializeField] private GameObject stats;
         [SerializeField] private Text[] statisticTexts;
+        [SerializeField] private Toggle showStats;
 
         private int[] _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
 
@@ -134,7 +135,7 @@ namespace RollScreen
 
             if (!AreAtLeastTwoD6()) return;
             _d6Counts = new[] { 0, 0, 0, 0, 0, 0 };
-            stats.SetActive(true);
+            stats.SetActive(showStats.isOn);
             CreateStatistics();
             WriteStatistics();
         }
