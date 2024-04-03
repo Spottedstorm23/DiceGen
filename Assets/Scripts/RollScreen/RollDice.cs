@@ -333,11 +333,14 @@ namespace RollScreen
             for (var i = 0; i < DiceManager.Manager.diceCounter; i++)
             {
                 var dice = DiceManager.Manager.AllDice[i];
-                if (dice.Type == DiceTypes.D6)
+                if (RollDices[i] == null || dice.Type != DiceTypes.D6)
                 {
-                    _d6Counts[dice.Result - 1]++;
-                    _d6CountsOverRounds[dice.Result - 1]++;
+                    continue;
                 }
+
+                _d6Counts[dice.Result - 1]++;
+                if (RollDices[i].LockResult) continue;
+                _d6CountsOverRounds[dice.Result - 1]++;
             }
         }
 

@@ -1,7 +1,7 @@
-![Static Badge](https://img.shields.io/badge/Version-v5.1.0-%23b3e6ff?logo=android)
+![Static Badge](https://img.shields.io/badge/Version-v5.2.1-%23b3e6ff?logo=android)
 ![Static Badge](https://img.shields.io/badge/Android-6%2B-purple?logo=android)
 
-![Static Badge](https://img.shields.io/badge/Version-v2.0.0-%23b3e6ff?logo=windows)
+![Static Badge](https://img.shields.io/badge/Version-v2.1.0-%23b3e6ff?logo=windows)
 ![Static Badge](https://img.shields.io/badge/Windows-64_Bit-purple?logo=windows)
 
 ![Static Badge](https://img.shields.io/badge/Unity-2022.3.22f1-%23e6e6e6?logo=unity)
@@ -35,6 +35,7 @@ Actively tested on
 * Samsung S22 - Android 14
 * OnePlus Pro 8 (IN2023) - Android 13
 * Samsung S8 - Android 9
+* Samsung Galaxy A20e
 
 ## Assets
 * Background: Dynamic Space Background Lite - view [Unity Asset Store Page](https://assetstore.unity.com/packages/2d/textures-materials/dynamic-space-background-lite-104606)
